@@ -1,0 +1,22 @@
+{
+  "config_schema": {
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {},
+    "required": []
+  },
+  "deploy_env": {
+    "cmd_release": ["echo 'release'"],
+    "processes": {
+      "web": "npm start"
+    },
+    "listening_ports": {
+      "web": [8080]
+    },
+    "max_ram": {
+      "web": 512
+    },
+    "admin_tasks": {},
+    "deploy_tasks": ["web"]
+  }
+}
