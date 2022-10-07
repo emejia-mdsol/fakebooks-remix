@@ -10,12 +10,15 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function IndexRoute() {
   return (
-    <div>
-      Go to the{" "}
-      <Link className="text-blue-600 underline" to="sales">
-        sales
-      </Link>{" "}
-      page...
-    </div>
+    <>
+      <div>
+        Go to the{" "}
+        <Link className="text-blue-600 underline" to="sales">
+          sales
+        </Link>{" "}
+        page...
+      </div>
+      <div>Don't forget to like and subscribe</div>
+    </>
   );
 }
