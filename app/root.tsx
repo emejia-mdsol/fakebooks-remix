@@ -17,24 +17,20 @@ import {
   useLocation,
 } from "@remix-run/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Dialog } from "@reach/dialog";
-import reachDialogStylesheet from "@reach/dialog/styles.css";
 import { getUser } from "./session.server";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { dangerButtonClasses, submitButtonClasses } from "./components";
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: tailwindStylesheetUrl },
-    { rel: "stylesheet", href: reachDialogStylesheet },
-  ];
+  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "Fakebooks Remix",
-  description: "Fakebooks is an example Remix application for comparing to a CRA-based app"
+  description:
+    "Fakebooks is an example Remix application for comparing to a CRA-based app",
 });
 
 type LoaderData = {
@@ -104,28 +100,22 @@ function LogoutTimer() {
   }
 
   return (
-    <Dialog
-      aria-label="Pending Logout Notification"
-      isOpen={status === "show-modal"}
-      onDismiss={closeModal}
-    >
-      <div>
-        <h1 className="mb-4 text-d-h3">Are you still there?</h1>
-        <p>
-          You are going to be logged out due to inactivity. Close this modal to
-          stay logged in.
-        </p>
-        <div className="h-8" />
-        <div className="flex items-end gap-8">
-          <button onClick={closeModal} className={submitButtonClasses}>
-            Remain Logged In
-          </button>
-          <button onClick={logout} className={dangerButtonClasses}>
-            Logout
-          </button>
-        </div>
+    <div>
+      <h1 className="mb-4 text-d-h3">Are you still there?</h1>
+      <p>
+        You are going to be logged out due to inactivity. Close this modal to
+        stay logged in.
+      </p>
+      <div className="h-8" />
+      <div className="flex items-end gap-8">
+        <button onClick={closeModal} className={submitButtonClasses}>
+          Remain Logged In
+        </button>
+        <button onClick={logout} className={dangerButtonClasses}>
+          Logout
+        </button>
       </div>
-    </Dialog>
+    </div>
   );
 }
 
